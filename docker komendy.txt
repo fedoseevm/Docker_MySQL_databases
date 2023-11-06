@@ -1,0 +1,31 @@
+C:\Users\uczen>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+mysql        latest    a3b6608898d6   12 days ago   596MB
+
+C:\Users\uczen>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                 NAMES
+350a1c472faf   mysql     "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   3306/tcp, 33060/tcp   mysql-uczen
+
+
+
+C:\Users\uczen>docker exec -it mysql-uczen bash
+bash-4.4# mysql -u root -p
+Enter password: root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+
+bash-4.4# mysqldump -u root -p --databases mysql > mysql.sql
+
+
+
+C:\Users\uczen>docker cp mysql-uczen:mysql.sql C:\Mysql
+Successfully copied 3.84MB to C:\Mysql
+
+C:\Users\uczen>docker cp C:\Mysql\szkola.sql mysql-uczen:szkola.sql
+Successfully copied 2.05kB to mysql-uczen:szkola.sql
+
+bash-4.4# mysql -u root -p < szkola.sql
+Enter password: root
+bash-4.4# mysql -u root -p
+Enter password: root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
