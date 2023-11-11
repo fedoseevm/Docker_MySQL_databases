@@ -1,0 +1,7 @@
+wsl --install    [Installation]
+
+wsl --list --online (wsl -l -o) [Check all available Linux distro]
+wsl --list --verobse   [Check, if distro version is WSL 1 or WSL 2]
+
+wsl --set-version <distro name> 2 [Change WSL 1 -> WSL 2]
+wsl --set-version Ubuntu-20.04 2 [Example]
