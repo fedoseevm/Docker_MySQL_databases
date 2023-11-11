@@ -1,14 +1,16 @@
 C:\Users\uczen>docker run --name mysql-uczen -e MYSQL_ROOT_PASSWORD=root -d mysql
+(or MYSQL_ALLOW_EMPTY_PASSWORD)
 
 C:\Users\uczen>docker images
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 mysql        latest    a3b6608898d6   12 days ago   596MB
 
+docker rm -f <container-name> [Remove container]
+docker rm -f mysql-uczen  [Example]
+
 C:\Users\uczen>docker ps
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                 NAMES
 350a1c472faf   mysql     "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   3306/tcp, 33060/tcp   mysql-uczen
-
-
 
 C:\Users\uczen>docker exec -it mysql-uczen bash
 bash-4.4# mysql -u root -p
