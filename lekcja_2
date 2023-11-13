@@ -1,0 +1,33 @@
+C:\Users\uczen>netstat -at
+
+
+C:\Users\uczen>docker network ls    [All working networks]
+NETWORK ID     NAME      DRIVER    SCOPE
+6f39690e6a4d   bridge    bridge    local
+319d3207bf1e   host      host      local
+fd8b8a55ed34   none      null      local
+
+C:\Users\uczen>docker network create mysql-net      [Creating custom network]
+03bd41dd3c140d0ceba0e2b1ec8e10702dfda3a6d98630af4d5f2da5d4e603b7
+
+C:\Users\uczen>docker network ls
+NETWORK ID     NAME        DRIVER    SCOPE
+6f39690e6a4d   bridge      bridge    local
+319d3207bf1e   host        host      local
+03bd41dd3c14   mysql-net   bridge    local
+fd8b8a55ed34   none        null      local
+
+
+docker pull mysql
+docker pull phpmyadmin  [Downloading Images]
+
+C:\Users\uczen>docker run --name mysql-1 -e MYSQL_ROOT_PASSWORD=root --network mysql-net -p 3307:3306 -d mysql      [Creating mysql container]
+e5fc2d6a6af797ce850a1baf665a07a2fc52ce67aef4b28bd421503068f63bae
+
+C:\Users\uczen>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS          PORTS                               NAMES
+e5fc2d6a6af7   mysql     "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds    33060/tcp, 0.0.0.0:3307->3306/tcp   mysql-1
+350a1c472faf   mysql     "docker-entrypoint.s…"   7 days ago      Up 18 minutes   3306/tcp, 33060/tcp                 mysql-uczen
+
+C:\Users\uczen>docker run --name pma-1 --network mysql-net -p 8081:80 -d phpmyadmin                                [Creating phpmyadmin container]
+3a8351459bc4699b7e8934b52854b58172bf7a7f4626f30f3090b07cdd1cae9b
