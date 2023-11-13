@@ -39,3 +39,17 @@ e5fc2d6a6af7   mysql     "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds
 C:\Users\uczen>docker run --name pma-1 --network mysql-net -p 8081:80 -d phpmyadmin                                [Creating phpmyadmin container]
 3a8351459bc4699b7e8934b52854b58172bf7a7f4626f30f3090b07cdd1cae9b
 
+
+C:\Users\uczen\2E MF\Docker>docker-compose up -d
+[+] Building 0.0s (0/0)                                                                                                                docker:default
+[+] Running 4/4
+ ✔ Network docker_mysql-net2  Created                                                                                                            0.1s
+ ✔ Volume "docker_mysql-vol"  Created                                                                                                            0.0s
+ ✔ Container pma-2            Started                                                                                                            0.1s
+ ✔ Container mysql-2          Started                                                                                                            0.1s
+
+[+] Running 3/32E MF\Docker>docker-compose down
+ ✔ Container pma-2            Removed                                                                                                            1.4s
+ ✔ Container mysql-2          Removed                                                                                                            1.9s
+ ✔ Network docker_mysql-net2  Removed                                                                                                            0.3s
+
