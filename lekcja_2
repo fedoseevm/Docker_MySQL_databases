@@ -21,7 +21,14 @@ fd8b8a55ed34   none        null      local
 docker pull mysql
 docker pull phpmyadmin  [Downloading Images]
 
-C:\Users\uczen>docker run --name mysql-1 -e MYSQL_ROOT_PASSWORD=root --network mysql-net -p 3307:3306 -d mysql      [Creating mysql container]
+C:\Users\uczen>docker run --name mysql-1 -e MYSQL_ROOT_PASSWORD=root --network mysql-net -p 3307:3306 -d mysql         [Creating mysql container]
+(
+[docker run --name mysql-1 --env MYSQL_ROOT_PASSWORD=root --network mysql-net --publish 3307:3306 --detach mysql]
+--env -e [Set environment variables]
+--network [Connect a container to a network]
+--publish [Publish a container's port(s) to the host]
+--detach [Run container in background and print container ID]
+)
 e5fc2d6a6af797ce850a1baf665a07a2fc52ce67aef4b28bd421503068f63bae
 
 C:\Users\uczen>docker ps
@@ -31,3 +38,4 @@ e5fc2d6a6af7   mysql     "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds
 
 C:\Users\uczen>docker run --name pma-1 --network mysql-net -p 8081:80 -d phpmyadmin                                [Creating phpmyadmin container]
 3a8351459bc4699b7e8934b52854b58172bf7a7f4626f30f3090b07cdd1cae9b
+
