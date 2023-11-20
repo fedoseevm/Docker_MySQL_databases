@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    container_name: mysql-3
+    container_name: mysql3
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: rootroot    
@@ -12,7 +12,7 @@ services:
       - db-vol:/var/lib/mysql
 
   phpmyadmin:
-    container_name: phpmyadmin-3
+    container_name: phpmyadmin3
     image: phpmyadmin
     ports:
       - 8081:80
